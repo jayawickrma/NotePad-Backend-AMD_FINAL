@@ -2,6 +2,7 @@ import {savePost} from "../Service/PostService";
 
 class PostController{
     async addPost(req:any,resp:any){
+        console.log(req.body)
         try{
             await savePost(req.body);
             resp.status(201).send("Created...")
