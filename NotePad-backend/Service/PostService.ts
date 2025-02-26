@@ -35,3 +35,36 @@ export async function deletePost(postId:number){
     }
 
 }
+
+export async function getAllPosts(){
+    try{
+        const all =await prisma.post.findMany()
+        if (all){
+            return all;
+        }
+    }catch (err){
+        console.log(err)
+        throw new Error("Something went wrong...")
+    }
+}
+export async function updatePost(postId:number,postDto:PostDTO){
+    try{
+        await prisma.post.update({
+            where:{id:postId},
+            data:{
+                title:postDto.title,
+                content:postDto.content,
+                createdAt:new Date(),
+                updatedAt:new Date(),
+                author:{
+                    connect:{
+                        id :postDto.authorId
+                    }
+                }
+            }
+        })
+    }catch (err){
+        console.log(err)
+        throw new Error("Something went wrong...")
+    }
+}
