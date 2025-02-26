@@ -23,5 +23,15 @@ export async function savePost(postDto:PostDTO){
     }
 }
 export async function deletePost(postId:number){
+    try{
+        await prisma.post.delete({
+            where:{
+                id:postId
+            }
+        })
+    }catch (err){
+        console.log(err)
+        throw new Error("Something went wrong...")
+    }
 
 }

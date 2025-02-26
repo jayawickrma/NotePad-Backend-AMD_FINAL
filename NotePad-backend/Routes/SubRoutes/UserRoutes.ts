@@ -13,7 +13,8 @@ class UserRoutes{
 
     initialRoutes():void{
         this.router.post('/signUp',this.userController.signUp);
-        this.router.post('/signIn',this.userController.signIn)
+        this.router.post('/signIn',this.userController.signIn);
+        this.router.post('/refreshToken',this.userController.refreshToken)
     }
 }
 const userRoutes:UserRoutes =new UserRoutes();

@@ -21,6 +21,9 @@ class PostController{
     async updatePost(req:any,resp:any){
 
     }
+    async getPost(req:any,resp:any){
+
+    }
 
 
 }
