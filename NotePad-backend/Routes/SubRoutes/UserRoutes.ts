@@ -12,10 +12,8 @@ class UserRoutes{
     }
 
     initialRoutes():void{
-        this.router.post('/addUser',this.userController.addUser)
-        this.router.delete('/deleteUser',this.userController.deleteUser)
-        this.router.put('/updateUser',this.userController.updateUser)
-        this.router.get('/getAllUsers',this.userController.getAllUsers)
+        this.router.post('/signUp',this.userController.signUp);
+        this.router.post('/signIn',this.userController.signIn)
     }
 }
 const userRoutes:UserRoutes =new UserRoutes();

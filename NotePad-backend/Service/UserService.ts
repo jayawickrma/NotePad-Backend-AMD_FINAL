@@ -18,3 +18,16 @@ export async function addUser(user:UserDTO){
         throw new Error("Something went wrong")
     }
 }
+export async function findByEmail(verifyUser:UserDTO){
+    try{
+        const already =await prisma.user.findUnique({
+            where:{email:verifyUser.email}
+        })
+        if (already){
+            return "Already Exists..."
+        }
+
+    }catch (err){
+        console.log(err)
+    }
+}

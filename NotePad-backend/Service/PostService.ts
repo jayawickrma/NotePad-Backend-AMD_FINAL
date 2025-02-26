@@ -22,3 +22,6 @@ export async function savePost(postDto:PostDTO){
         throw new Error("Something went wrong...")
     }
 }
+export async function deletePost(postId:number){
+
+}
