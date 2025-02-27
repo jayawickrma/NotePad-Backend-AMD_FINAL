@@ -15,7 +15,6 @@ class PostRoutes{
         this.router.get('/getPost',this.postController.getAllPost);
         this.router.delete('/deletePost',this.postController.deletePost);
         this.router.put('/updatePost',this.postController.updatePost)
-        this.router.get('/getPost',this.postController.getPost)
     }
 
 

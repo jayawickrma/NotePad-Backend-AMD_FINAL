@@ -38,7 +38,9 @@ export async function deletePost(postId:number){
 
 export async function getAllPosts(){
     try{
-        const all =await prisma.post.findMany()
+        const all =await prisma.post.findMany({
+            where:{}
+        })
         if (all){
             return all;
         }
