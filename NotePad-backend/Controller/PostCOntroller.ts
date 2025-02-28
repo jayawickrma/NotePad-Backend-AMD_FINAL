@@ -1,6 +1,5 @@
 import {deletePost, getAllPosts, savePost, updatePost} from "../Service/PostService";
 import {PostDTO} from "../DTO/PostDTO";
-
 class PostController{
     async addPost(req:any,resp:any){
         console.log(req.body)

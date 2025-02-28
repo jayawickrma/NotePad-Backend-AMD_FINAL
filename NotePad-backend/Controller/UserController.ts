@@ -13,18 +13,22 @@ class UserController{
         }
     }
     async signIn(req:any,resp:any){
+        console.log("user login call =======================")
         const email =req.body.email;
         const password =req.body.password;
         const name =req.body.name
+
+        console.log(email,password)
 
         const user:UserDTO  ={email,password,name}
         try{
             const verified =await findByEmail(user);
 
             if (verified){
+                console.log("is verified ===============")
                 const token =jwt.sign({email},process.env.SECRET_KEY as Secret,{expiresIn:"1d"});
                 const refreshToken =jwt.sign({email},process.env.REFRESH_TOKEN as Secret,{expiresIn:"7d"});
-                resp.json({accessToken:token,refreshToken:refreshToken})
+                resp.status(201).json({accessToken:token,refreshToken:refreshToken})
             }else {
                 resp.sendStatus(403).send("Invalid Credentials...")
             }

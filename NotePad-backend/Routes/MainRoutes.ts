@@ -8,8 +8,8 @@ class MainRoutes{
     router:Router
     constructor() {
         this.router =Router()
-        this.router.use('/post',authenticateToken,postRoutes.router);
-        this.router.use('/user',userRoutes.router)
+        this.router.use('/post',postRoutes.router);
+        this.router.use('/auth',userRoutes.router)
     }
 }
 const mainRoutes:MainRoutes =new MainRoutes();
